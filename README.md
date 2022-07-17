@@ -21,6 +21,9 @@ Features:
 
 The size of this demo is 3,530 bytes, only 26% of the 13kb budget, which leaves you 9,782 bytes to add gameplay, graphics, sound, and more.
 
+> **Warning**
+> **This is an advanced starter project!** The tools will perform all kinds of crazy transformations to your code, so things will often break in mysterious ways. This project is only recommended for developers who are comfortable debugging complex tool chains.
+
 ## Usage
 
 ### Install
@@ -40,6 +43,8 @@ Start the dev server with hot reload:
 ```bash
 npm run dev
 ```
+
+Open your web browser to <http://localhost:3000/>
 
 ### Production build
 
