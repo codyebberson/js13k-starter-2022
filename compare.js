@@ -10,7 +10,7 @@ function main() {
 function runOneIteration() {
   for (const typescript of ['esbuild', 'tsc']) {
     for (const minify of ['terser', 'esbuild', 'false']) {
-      for (const closure of ['true', 'false']) {
+      for (const closure of ['closure', 'amp', 'none']) {
         runOneBuild(typescript, minify, closure);
       }
     }
@@ -22,7 +22,7 @@ function runOneBuild(typescript, minify, closure) {
     env: {
       TYPESCRIPT_COMPILER: typescript,
       VITE_MINIFY: minify,
-      CLOSURE_ENABLED: closure,
+      CLOSURE_COMPILER: closure,
     },
   });
   console.log(result.toString());
