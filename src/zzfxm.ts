@@ -28,11 +28,11 @@ type Instrument = (number | undefined)[];
 /**
  * Generate a song
  *
- * @param {Array.<Instrument>} instruments - Array of ZzFX sound paramaters.
- * @param {Array.<Pattern>} patterns - Array of pattern data.
- * @param {Array.<Number>} sequence - Array of pattern indexes.
- * @param {Number} [speed=125] - Playback speed of the song (in BPM).
- * @returns {Array.<Array.<Number>>} Left and right channel sample data.
+ * @param instruments - Array of ZzFX sound paramaters.
+ * @param patterns - Array of pattern data.
+ * @param sequence - Array of pattern indexes.
+ * @param [speed=125] - Playback speed of the song (in BPM).
+ * @returns Left and right channel sample data.
  */
 export const zzfxM = (instruments: Instrument[], patterns: Pattern[], sequence: number[], BPM = 125): number[][] => {
   let instrumentParameters;

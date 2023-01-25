@@ -15,14 +15,13 @@ export const mouse = {
 
   /**
    * Mouse buttons
-   * @const {!Array.<!Input>}
    */
   buttons: [newInput(), newInput(), newInput()],
 };
 
 /**
  * Initializes the keyboard.
- * @param {!HTMLElement} el The HTML element to listen on.
+ * @param el The HTML element to listen on.
  */
 export function initMouse(el: HTMLElement): void {
   el.addEventListener('mousedown', (e) => {

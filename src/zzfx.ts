@@ -46,19 +46,16 @@ ZzFX Features
 
 /**
  * Master volume scale.
- * @const {number}
  */
 export const zzfxV = 0.3;
 
 /**
  * Sample rate for audio.
- * @const {number}
  */
 export const zzfxR = 44100;
 
 /**
  * Create shared audio context.
- * @const {!AudioContext}
  */
 export const zzfxX = new AudioContext();
 

@@ -9,18 +9,16 @@ export const KEY_D = 68;
 export const KEY_S = 83;
 export const KEY_W = 87;
 
-/** @const {number} */
 const KEY_COUNT = 256;
 
 /**
  * Array of keyboard keys.
- * @const {!Array.<!Input>}
  */
 export const keys: Input[] = new Array(KEY_COUNT);
 
 /**
  * Initializes the keyboard.
- * @param {!HTMLElement} el The HTML element to listen on.
+ * @param el The HTML element to listen on.
  */
 export function initKeys(el: HTMLElement): void {
   for (let i = 0; i < KEY_COUNT; i++) {

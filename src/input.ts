@@ -11,7 +11,7 @@ export const newInput = (): Input => ({ down: false, downCount: 0, upCount: 2 })
 
 /**
  * Updates the up/down counts for an input.
- * @param {!Input} input
+ * @param input
  */
 export function updateInput(input: Input): void {
   if (input.down) {
