@@ -110,11 +110,12 @@ export function zzfxG(
 ): number[] {
   // init parameters
   const PI2 = Math.PI * 2;
-  let sampleRate = zzfxR,
-    sign = (v: number) => (v > 0 ? 1 : -1),
-    startSlide = (slide *= (500 * PI2) / sampleRate / sampleRate),
-    startFrequency = (frequency *= ((1 + randomness * 2 * Math.random() - randomness) * PI2) / sampleRate),
-    b = [],
+  const sampleRate = zzfxR;
+  const sign = (v: number): number => (v > 0 ? 1 : -1);
+  const startSlide = (slide *= (500 * PI2) / sampleRate / sampleRate);
+  const b = [];
+
+  let startFrequency = (frequency *= ((1 + randomness * 2 * Math.random() - randomness) * PI2) / sampleRate),
     t = 0,
     tm = 0,
     i = 0,

@@ -34,7 +34,7 @@ type Instrument = (number | undefined)[];
  * @param {Number} [speed=125] - Playback speed of the song (in BPM).
  * @returns {Array.<Array.<Number>>} Left and right channel sample data.
  */
-export const zzfxM = (instruments: Instrument[], patterns: Pattern[], sequence: number[], BPM = 125) => {
+export const zzfxM = (instruments: Instrument[], patterns: Pattern[], sequence: number[], BPM = 125): number[][] => {
   let instrumentParameters;
   let i;
   let j;
@@ -51,13 +51,13 @@ export const zzfxM = (instruments: Instrument[], patterns: Pattern[], sequence: 
   let sampleOffset = 0;
   let nextSampleOffset;
   let sampleBuffer: number[] = [];
-  let leftChannelBuffer: number[] = [];
-  let rightChannelBuffer: number[] = [];
+  const leftChannelBuffer: number[] = [];
+  const rightChannelBuffer: number[] = [];
   let channelIndex = 0;
   let panning = 0;
   let hasMore = 1;
-  let sampleCache: Record<string, any> = {};
-  let beatLength = ((zzfxR / BPM) * 60) >> 2;
+  const sampleCache: Record<string, any> = {};
+  const beatLength = ((zzfxR / BPM) * 60) >> 2;
 
   // for each channel in order until there are no more
   for (; hasMore; channelIndex++) {

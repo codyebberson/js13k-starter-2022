@@ -44,6 +44,6 @@ function setKey(e: KeyboardEvent, state: boolean): void {
   keys[e.keyCode].down = state;
 }
 
-export function updateKeys() {
+export function updateKeys(): void {
   keys.forEach(updateInput);
 }

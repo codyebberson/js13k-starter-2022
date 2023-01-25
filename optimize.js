@@ -1,9 +1,16 @@
 const { execSync } = require('child_process');
-const { statSync, appendFileSync } = require('fs');
+const { statSync, copyFileSync } = require('fs');
+
+const stats = {};
+let bestSize = Infinity;
 
 function main() {
   for (let i = 0; i < 10; i++) {
     runOneIteration();
+  }
+
+  for (const entry in Object.entries(stats).sort((a, b) => a[1] - b[1])) {
+    console.log(entry, stats[entry]);
   }
 }
 
@@ -29,7 +36,18 @@ function runOneBuild(typescript, minify, closure) {
 
   const stats = statSync('dist/index.zip');
   console.log('ZIP size', stats.size);
-  appendFileSync('stats.csv', `${typescript},${minify},${closure},${stats.size}\n`);
+
+  const key = `${typescript}-${minify}-${closure}`;
+  if (key in stats) {
+    stats[key] = Math.min(stats[key], stats.size);
+  } else {
+    stats[key] = stats.size;
+  }
+
+  if (stats.size < bestSize) {
+    bestSize = stats.size;
+    copyFileSync('dist/index.zip', 'index.best.zip');
+  }
 }
 
 if (require.main === module) {

@@ -1,5 +1,6 @@
 import ampClosurePlugin from '@ampproject/rollup-plugin-closure-compiler';
 import typescriptPlugin from '@rollup/plugin-typescript';
+import advzip from 'advzip-bin';
 import { execFileSync } from 'child_process';
 import CleanCSS from 'clean-css';
 import ect from 'ect-bin';
@@ -71,6 +72,7 @@ export default defineConfig(({ command, mode }) => {
 
   plugins.push(roadrollerPlugin());
   plugins.push(ectPlugin());
+  plugins.push(advzipPlugin());
 
   return {
     esbuild: TYPESCRIPT_COMPILER === 'esbuild' ? {} : false,
@@ -248,9 +250,30 @@ function ectPlugin(): Plugin {
         const result = execFileSync(ect, args);
         console.log('ECT result', result.toString().trim());
         const stats = statSync('dist/index.zip');
-        console.log('ZIP size', stats.size);
+        console.log('ECT ZIP size', stats.size);
       } catch (err) {
         console.log('ECT error', err);
+      }
+    },
+  };
+}
+
+/**
+ * Creates the advzip plugin that uses AdvanceCOMP to optimize the zip file.
+ * @returns The advzip plugin.
+ */
+function advzipPlugin(): Plugin {
+  return {
+    name: 'vite:advzip',
+    writeBundle: async (): Promise<void> => {
+      try {
+        const args = ['--recompress', '--shrink-extra', 'dist/index.zip'];
+        const result = execFileSync(advzip, args);
+        console.log(result.toString().trim());
+        const stats = statSync('dist/index.zip');
+        console.log('advzip ZIP size', stats.size);
+      } catch (err) {
+        console.log('advzip error', err);
       }
     },
   };

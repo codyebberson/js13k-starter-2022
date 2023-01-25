@@ -40,6 +40,6 @@ export function initMouse(el: HTMLElement): void {
 /**
  * Updates all mouse button states.
  */
-export function updateMouse() {
+export function updateMouse(): void {
   mouse.buttons.forEach(updateInput);
 }

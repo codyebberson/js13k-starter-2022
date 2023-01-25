@@ -1,3 +1,4 @@
+/* eslint-disable no-sparse-arrays */
 import { initKeys, keys, KEY_A, KEY_D, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_S, KEY_UP, KEY_W, updateKeys } from './keys';
 import { initMouse, mouse, updateMouse } from './mouse';
 import { music } from './music';
@@ -207,7 +208,7 @@ function render(): void {
   ctx.fillText('Left click to shoot', 0.5, 128.5);
 }
 
-const distance = (a: Entity, b: Entity) => Math.hypot(a.x - b.x, a.y - b.y);
+const distance = (a: Entity, b: Entity): number => Math.hypot(a.x - b.x, a.y - b.y);
 
 window.setInterval(gameLoop, MILLIS_PER_FRAME);
 

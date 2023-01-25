@@ -1,10 +1,3 @@
-/**
- * @typedef {{
- *            down:boolean,
- *            downCount:number,
- *            upCount:number
- *          }}
- */
 export interface Input {
   down: boolean;
   downCount: number;
@@ -14,7 +7,7 @@ export interface Input {
 /**
  * Creates a new input.
  */
-export const newInput = () => ({ down: false, downCount: 0, upCount: 2 });
+export const newInput = (): Input => ({ down: false, downCount: 0, upCount: 2 });
 
 /**
  * Updates the up/down counts for an input.
