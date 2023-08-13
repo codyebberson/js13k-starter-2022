@@ -1,5 +1,8 @@
 # JS13K Starter 2022
 
+> [!NOTE]
+> Check out the new version here: https://github.com/codyebberson/js13k-starter-2023
+
 A starter template for the [js13kgames competition](https://js13kgames.com/).
 
 ![js13k-starter-2022](https://codyebberson.github.io/js13k-starter-2022/js13k-starter-2022.gif)
