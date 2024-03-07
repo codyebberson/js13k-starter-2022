@@ -1,7 +1,9 @@
-# JS13K Starter 2022
-
 > [!NOTE]
-> Check out the new version here: https://github.com/codyebberson/js13k-starter-2023
+> This project is no longer maintained.
+>
+> Check out the new version here: https://github.com/codyebberson/js13k-starter
+
+# JS13K Starter 2022
 
 A starter template for the [js13kgames competition](https://js13kgames.com/).
 
